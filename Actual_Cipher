@@ -1,0 +1,48 @@
+#This runs in an online python2 compiler
+#At the moment, it ignores capitals
+import random
+og_word = raw_input("Type your word here: ").lower()
+
+letter_values = {
+  1 : "a",
+  2 : "b",
+  3 : "c",
+  4 : "d",
+  5 : "e",
+  6 : "f",
+  7 : "g",
+  8 : "h",
+  9 : "i",
+  10 : "j",
+  11 : "k",
+  12 : "l",
+  13 : "m",
+  14 : "n",
+  15 : "o",
+  16 : "p",
+  17 : "q",
+  18 : "r",
+  19 : "s",
+  20 : "t",
+  21 : "u",
+  22 : "v",
+  23 : "w",
+  24 : "x",
+  25 : "y",
+  26 : "z",
+}
+
+
+def caeser_cipher():
+  shift_number = randint(1, 3)
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[x_key + shift_number]
+      
+caeser_cipher()
+
+#mydict = {'george':16,'amber':19}
+#print mydict.keys()[mydict.values().index(16)] # Prints george
