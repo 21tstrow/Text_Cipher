@@ -1,1 +1,34 @@
 
+def tucker_cipher():
+  og_word
+  shift_number1 = int(raw_input("#1: "))
+  shift_number2 = int(raw_input("#2: "))
+  shift_number3 = int(raw_input("#3: "))
+  
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(((x_key - shift_number1) * shift_number2) / (shift_number1 * shift_number3 ) )%26],
+    else:
+      print x,
+
+def decode_tucker_cipher():
+  shift_number1 = int(raw_input("#1: "))
+  shift_number2 = int(raw_input("#2: "))
+  shift_number3 = int(raw_input("#3: "))
+
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+         print letter_values[]
+         #print letter_values[(((x_key - shift_number1) * shift_number2) / (shift_number1 * shift_number3 ) )%26],
+    else:
+      print x,
+
+tucker_cipher()
+
+
