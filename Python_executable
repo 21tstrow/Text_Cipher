@@ -129,7 +129,10 @@ def tucker_cipher():
           y_key = ((shift_number1 * shift_number2) / shift_number3)
           print letter_values[(x_key + y_key) % 26],
     else:
-      print x,
+      for c in other_values:
+        if (x == other_values[c]):
+          x_key = other_values.keys()[other_values.values().index(x)]
+          print other_values[(x_key + y_key)%26],
   print y_key
 
 
@@ -146,8 +149,10 @@ def decode_tucker_cipher():
           y_key = ((shift_number1 * shift_number2) / shift_number3)
           print letter_values[(x_key - y_key) % 26],
     else:
-      print x,
-
+      for c in other_values:
+        if (x == other_values[c]):
+          x_key = other_values.keys()[other_values.values().index(x)]
+          print other_values[(x_key - y_key)%26],
 #tucker_cipher()
 #decode_tucker_cipher()
 #caeser_cipher_rand()
