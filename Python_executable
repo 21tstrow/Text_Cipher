@@ -1,0 +1,75 @@
+#This runs in an online python2 compiler
+#At the moment, it ignores capitals
+import random
+og_word = raw_input("Type your word here: ").lower()
+
+letter_values = {
+  0 : "a",
+  1 : "b",
+  2 : "c",
+  3 : "d",
+  4 : "e",
+  5 : "f",
+  6 : "g",
+  7 : "h",
+  8 : "i",
+  9 : "j",
+  10 : "k",
+  11 : "l",
+  12 : "m",
+  13 : "n",
+  14 : "o",
+  15 : "p",
+  16 : "q",
+  17 : "r",
+  18 : "s",
+  19 : "t",
+  20 : "u",
+  21 : "v",
+  22 : "w",
+  23 : "x",
+  24 : "y",
+  25 : "z",
+}
+
+
+def caeser_cipher_rand():
+  shift_number = random.randint(1, 27) - 1
+  print shift_number
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key + shift_number)%26],
+    else:
+      print x,
+      
+def caeser_cipher_choice():
+  shift_number = raw_input("What should the shift number be? Type here: ")
+  print shift_number
+  shift_number = int(shift_number) - 1
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key + shift_number)%26],
+    else:
+      print x,
+
+def decode_caeser_cipher():
+  shift_number = raw_input("What is the shift number? Type here: ")
+  shift_number = int(shift_number) - 1
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key - shift_number)%26],
+    else:
+      print x,
+
+#caeser_cipher_rand()
+#caeser_cipher_choice()
+#decode_caeser_cipher()
