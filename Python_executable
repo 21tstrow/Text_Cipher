@@ -1,5 +1,4 @@
 
-
 #This runs in an online python2 compiler
 #At the moment, it ignores capitals
 import random
@@ -76,6 +75,7 @@ other_values = {
   38 : ";",
   39 : ":",
   40 : "\'",
+  41: " ",
 }
 
 def caeser_cipher_rand():
@@ -152,7 +152,7 @@ def decode_tucker_cipher():
       for c in other_values:
         if (x == other_values[c]):
           x_key = other_values.keys()[other_values.values().index(x)]
-          print other_values[(x_key - y_key)%26],
+          print other_values[((x_key - y_key)%26)],
 
 
 def x_cipher():
@@ -160,7 +160,6 @@ def x_cipher():
   shift_numba2 = int(raw_input("#2: "))
   shift_numba3 = int(raw_input("#3: "))
   y_key = ((shift_numba1 * (shift_numba2 + shift_numba2)) / shift_numba3)
-  print y_key
   for x in og_word:
     if x.isalpha() == True:
       for c in letter_values:
@@ -174,7 +173,7 @@ def x_cipher():
           x_key = other_values.keys()[other_values.values().index(x)]
           print other_values[(x_key + y_key)%26],
           y_key += 1        
-  print y_key
+
 
 
 def decode_x_cipher():
@@ -184,7 +183,6 @@ def decode_x_cipher():
   shift_numba3 = int(raw_input("#3: "))
   y_key = (((shift_numba1 * (shift_numba2 + shift_numba2)) / shift_numba3))
   
-  print y_key
   for x in og_word:
     if x.isalpha() == True:
       for c in letter_values:
@@ -196,12 +194,11 @@ def decode_x_cipher():
       for c in other_values:
         if (x == other_values[c]):
           x_key = other_values.keys()[other_values.values().index(x)]
-          print other_values[(x_key - y_key)%26],
+          print other_values[(((x_key - y_key)) % 26) + 26 ],
           y_key += 1
-  print y_key
 
-x_cipher()
-decode_x_cipher()
+#x_cipher()
+#decode_x_cipher()
 #tucker_cipher()
 #decode_tucker_cipher()
 #caeser_cipher_rand()
