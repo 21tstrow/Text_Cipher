@@ -133,7 +133,6 @@ def tucker_cipher():
         if (x == other_values[c]):
           x_key = other_values.keys()[other_values.values().index(x)]
           print other_values[(x_key + y_key)%26],
-  print y_key
 
 
 def decode_tucker_cipher():
@@ -153,6 +152,50 @@ def decode_tucker_cipher():
         if (x == other_values[c]):
           x_key = other_values.keys()[other_values.values().index(x)]
           print other_values[(x_key - y_key)%26],
+
+
+def x_cipher():
+  shift_numba1 = int(raw_input("#1: "))
+  shift_numba2 = int(raw_input("#2: "))
+  shift_numba3 = int(raw_input("#3: "))
+  y_key = ((shift_numba1 * (shift_numba2 * shift_numba2)) / shift_numba3)
+  for x in og_word:
+    if x.isalpha() == True:
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key - y_key)%26],
+          y_key += 1
+    else:
+      for c in other_values:
+        if (x == other_values[c]):
+          x_key = other_values.keys()[other_values.values().index(x)]
+          print other_values[(x_key - y_key)%26],
+          y_key += 1        
+
+def decode_x_cipher():
+  og_word = raw_input("Type your word here: ")
+  shift_numba1 = int(raw_input("#1: "))
+  shift_numba2 = int(raw_input("#2: "))
+  shift_numba3 = int(raw_input("#3: "))
+  y_key = (((shift_numba1 * (shift_numba2 * shift_numba2)) / shift_numba3) + len(og_word)) 
+  for x in og_word:
+    if x.isalpha() == True:
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key + y_key)%26],
+          y_key -= 1
+    else:
+      for c in other_values:
+        if (x == other_values[c]):
+          x_key = other_values.keys()[other_values.values().index(x)]
+          print other_values[(x_key + y_key)%26],
+          y_key -= 1
+
+
+x_cipher()
+decode_x_cipher()
 #tucker_cipher()
 #decode_tucker_cipher()
 #caeser_cipher_rand()
