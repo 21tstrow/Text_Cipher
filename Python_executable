@@ -1,30 +1,37 @@
+print """The following is a list of ciphers and cipher 
+decoding methods that you can use to encode a word or 
+phrase. They are listed from weakest to strongest:
+
+Ciphers:
+- ceaser_cipher_choice
+- ceaser_cipher_rand
+- tucker_cipher
+- x_cipher
+- xv2_cipher
+
+Decoding Methods:
+- decode_ceaser_cipher
+- decode_tucker_cipher
+- decode_x_cipher
+- decode_xv2_cipher
+
+In order to select a cipher, type the continuous cipher name, 
+including the underscores. For example, if I wanted to use the 
+tucker_cipher, I would simply just type tucker_cipher
+
+"""
+
+global user_cipherchoice
 user_cipherchoice = raw_input("What cipher or decoding message would you like to use?")
 
 def spell_checkforuser_cipherchoice():
-  if (user_cipherchoice != "xv2_cipher") or (user_cipherchoice != "decode_xv2_cipher") or (user_cipherchoice != "x_cipher") or (user_cipherchoice != "decode_x_cipher") or (user_cipherchoice != "tucker_cipher") or (user_cipherchoice != "decode_tucker_cipher") or (user_cipherchoice != "caeser_cipher_rand") or (user_cipherchoice != "caeser_cipher_choice") or (user_cipherchoice != "decode_caeser_cipher"):
+  global user_cipherchoice
+  if (user_cipherchoice != "xv2_cipher") and (user_cipherchoice != "decode_xv2_cipher") and (user_cipherchoice != "x_cipher") and (user_cipherchoice != "decode_x_cipher") and (user_cipherchoice != "tucker_cipher") and (user_cipherchoice != "decode_tucker_cipher") and (user_cipherchoice != "caeser_cipher_rand") and (user_cipherchoice != "caeser_cipher_choice") and (user_cipherchoice != "decode_caeser_cipher"):
     print "Double check your spelling and try again."
     user_cipherchoice = raw_input("Type Here: ")
     spell_checkforuser_cipherchoice()
 spell_checkforuser_cipherchoice()
 
-if user_cipherchoice == "xv2_cipher":
-  xv2_cipher()
-if user_cipherchoice == decode_xv2_cipher:
-  decode_xv2_cipher()
-if user_cipherchoice == x_cipher:
-  x_cipher()
-if user_cipherchoice == decode_x_cipher:
-  decode_x_cipher()
-if user_cipherchoice == tucker_cipher:
-  tucker_cipher()
-if user_cipherchoice == decode_tucker_cipher:
-  decode_tucker_cipher()
-if user_cipherchoice == "caeser_cipher_rand":
-  caeser_cipher_rand()
-if user_cipherchoice == "caeser_cipher_choice":
-  caeser_cipher_choice()
-if user_cipherchoice == "decode_caeser_cipher":
-  decode_caeser_cipher()
 
 #This runs in an online python2 compiler
 #At the moment, it ignores capitals
@@ -359,3 +366,348 @@ decode_xv2_cipher()
 #caeser_cipher_rand()
 #caeser_cipher_choice()
 #decode_caeser_cipher()
+
+
+
+#This runs in an online python2 compiler
+#At the moment, it ignores capitals
+import random
+og_word = raw_input("Type your word here: ").lower()
+
+letter_values = {
+  0 : "a",
+  1 : "b",
+  2 : "c",
+  3 : "d",
+  4 : "e",
+  5 : "f",
+  6 : "g",
+  7 : "h",
+  8 : "i",
+  9 : "j",
+  10 : "k",
+  11 : "l",
+  12 : "m",
+  13 : "n",
+  14 : "o",
+  15 : "p",
+  16 : "q",
+  17 : "r",
+  18 : "s",
+  19 : "t",
+  20 : "u",
+  21 : "v",
+  22 : "w",
+  23 : "x",
+  24 : "y",
+  25 : "z",
+}
+
+other_values = {
+  0 : "!",
+  1 : "@",
+  2 : "#",
+  3 : "$",
+  4 : "%",
+  5 : "^",
+  6 : "&",
+  7 : "*",
+  8 : "(",
+  9 : ")",
+  10 : "-",
+  11 : "_",
+  12 : "=",
+  13 : "+",
+  14 : "1",
+  15 : "2",
+  16 : "3",
+  17 : "4",
+  18 : "5",
+  19 : "6",
+  20 : "7",
+  21 : "8",
+  22 : "9",
+  23 : "0",
+  24 : ",",
+  25 : ".",
+  26 : "<",
+  27 : ">",
+  28 : "/",
+  29 : "?",
+  30 : "`",
+  31 : "~",
+  32 : "[",
+  33 : "{",
+  34 : "]",
+  35 : "}",
+  36 : "\"",
+  37 : "|",
+  38 : ";",
+  39 : ":",
+  40 : "\'",
+  41: " ",
+}
+
+complete_set = {
+  0 : "!",
+  1 : "@",
+  2 : "#",
+  3 : "$",
+  4 : "%",
+  5 : "^",
+  6 : "&",
+  7 : "*",
+  8 : "(",
+  9 : ")",
+  10 : "-",
+  11 : "_",
+  12 : "=",
+  13 : "+",
+  14 : "1",
+  15 : "2",
+  16 : "3",
+  17 : "4",
+  18 : "5",
+  19 : "6",
+  20 : "7",
+  21 : "8",
+  22 : "9",
+  23 : "0",
+  24 : ",",
+  25 : ".",
+  26 : "<",
+  27 : ">",
+  28 : "/",
+  29 : "?",
+  30 : "`",
+  31 : "~",
+  32 : "[",
+  33 : "{",
+  34 : "]",
+  35 : "}",
+  36 : "\"",
+  37 : "|",
+  38 : ";",
+  39 : ":",
+  40 : "\'",
+  41 : " ",
+  42 : "a",
+  43 : "b",
+  44 : "c",
+  45 : "d",
+  46 : "e",
+  47 : "f",
+  48 : "g",
+  49 : "h",
+  50 : "i",
+  51 : "j",
+  52 : "k",
+  53 : "l",
+  54 : "m",
+  55 : "n",
+  56 : "o",
+  57 : "p",
+  58 : "q",
+  59 : "r",
+  60 : "s",
+  61 : "t",
+  62 : "u",
+  63 : "v",
+  64 : "w",
+  65 : "x",
+  66 : "y",
+  67 : "z",
+  68 : "A",
+  69 : "B",
+  70 : "C",
+  71 : "D",
+  72 : "E",
+  73 : "F",
+  74 : "G",
+  75 : "H",
+  76 : "I",
+  77 : "J",
+  78 : "K",
+  79 : "L",
+  80 : "M",
+  81 : "N",
+  82 : "O",
+  83 : "P",
+  84 : "Q",
+  85 : "R",
+  86 : "S",
+  87 : "T",
+  88 : "U",
+  89 : "V",
+  90 : "W",
+  91 : "X",
+  92 : "Y",
+  93 : "Z",
+}
+
+
+
+def caeser_cipher_rand():
+  shift_number = random.randint(1, 27) - 1
+  print shift_number
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key + shift_number)%26],
+    else:
+      print x,
+      
+def caeser_cipher_choice():
+  shift_number = raw_input("What should the shift number be? Type here: ")
+  print shift_number
+  shift_number = int(shift_number) - 1
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key + shift_number)%26],
+    else:
+      print x,
+
+def decode_caeser_cipher():
+  shift_number = raw_input("What is the shift number? Type here: ")
+  shift_number = int(shift_number) - 1
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key - shift_number)%26],
+    else:
+      print x,
+
+
+def tucker_cipher():
+  og_word
+  shift_number1 = int(raw_input("#1: "))
+  shift_number2 = int(raw_input("#2: "))
+  shift_number3 = int(raw_input("#3: "))
+  
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          y_key = ((shift_number1 * shift_number2) / shift_number3)
+          print letter_values[(x_key + y_key) % 26],
+    else:
+      for c in other_values:
+        if (x == other_values[c]):
+          x_key = other_values.keys()[other_values.values().index(x)]
+          print other_values[(x_key + y_key)%26],
+
+
+def decode_tucker_cipher():
+  og_word = raw_input("Here: ")
+  shift_number1 = int(raw_input("#1: "))
+  shift_number2 = int(raw_input("#2: "))
+  shift_number3 = int(raw_input("#3: "))
+  for x in og_word:
+    if (x.isalpha() == True):
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = letter_values.keys()[letter_values.values().index(x)]
+          y_key = ((shift_number1 * shift_number2) / shift_number3)
+          print letter_values[(x_key - y_key) % 26],
+    else:
+      for c in other_values:
+        if (x == other_values[c]):
+          x_key = other_values.keys()[other_values.values().index(x)]
+          print other_values[((x_key - y_key)%26)],
+
+
+def x_cipher():
+  shift_numba1 = int(raw_input("#1: "))
+  shift_numba2 = int(raw_input("#2: "))
+  shift_numba3 = int(raw_input("#3: "))
+  y_key = ((shift_numba1 * (shift_numba2 + shift_numba2)) / shift_numba3)
+  for x in og_word:
+    if x.isalpha() == True:
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key + y_key)%26],
+          y_key += 1
+    else:
+      for c in other_values:
+        if (x == other_values[c]):
+          x_key = other_values.keys()[other_values.values().index(x)]
+          print other_values[(x_key + y_key)%26],
+          y_key += 1        
+
+
+
+def decode_x_cipher():
+  og_word = raw_input("Type your word here: ")
+  shift_numba1 = int(raw_input("#1: "))
+  shift_numba2 = int(raw_input("#2: "))
+  shift_numba3 = int(raw_input("#3: "))
+  y_key = (((shift_numba1 * (shift_numba2 + shift_numba2)) / shift_numba3))
+  
+  for x in og_word:
+    if x.isalpha() == True:
+      for c in letter_values:
+        if (x == letter_values[c]):
+          x_key = x_key = letter_values.keys()[letter_values.values().index(x)]
+          print letter_values[(x_key - y_key)%26],
+          y_key += 1
+    else:
+      for c in other_values:
+        if (x == other_values[c]):
+          x_key = other_values.keys()[other_values.values().index(x)]
+          print other_values[(((x_key - y_key)) % 26) + 26],
+          y_key += 1
+
+def xv2_cipher():
+  og_word = raw_input("Type your word here: ")
+  shift_numba1 = int(raw_input("#1: "))
+  shift_numba2 = int(raw_input("#2: "))
+  shift_numba3 = int(raw_input("#3: "))
+  y_key = ((shift_numba1 * (shift_numba2 + shift_numba2)) / shift_numba3)
+  for x in og_word:
+      for c in complete_set:
+        if (x == complete_set[c]):
+          x_key = complete_set.keys()[complete_set.values().index(x)]
+          print complete_set[((x_key + y_key)%93)],
+          y_key += 1
+
+def decode_xv2_cipher():
+  print " "
+  og_word = raw_input("Type your word here: ")
+  shift_numba1 = int(raw_input("#1: "))
+  shift_numba2 = int(raw_input("#2: "))
+  shift_numba3 = int(raw_input("#3: "))
+  y_key = (((shift_numba1 * (shift_numba2 + shift_numba2)) / shift_numba3))
+  for x in og_word:
+      for c in complete_set:
+        if (x == complete_set[c]):
+          x_key = complete_set.keys()[complete_set.values().index(x)]
+          print complete_set[((x_key - y_key)%93)],
+          y_key += 1
+
+if user_cipherchoice == "xv2_cipher":
+  xv2_cipher()
+if user_cipherchoice == "decode_xv2_cipher":
+  decode_xv2_cipher()
+if user_cipherchoice == "x_cipher":
+  x_cipher()
+if user_cipherchoice == "decode_x_cipher":
+  decode_x_cipher()
+if user_cipherchoice == "tucker_cipher":
+  tucker_cipher()
+if user_cipherchoice == "decode_tucker_cipher":
+  decode_tucker_cipher()
+if user_cipherchoice == "caeser_cipher_rand":
+  caeser_cipher_rand()
+if user_cipherchoice == "caeser_cipher_choice":
+  caeser_cipher_choice()
+if user_cipherchoice == "decode_caeser_cipher":
+  decode_caeser_cipher()
