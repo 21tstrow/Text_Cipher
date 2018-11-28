@@ -1,3 +1,31 @@
+user_cipherchoice = raw_input("What cipher or decoding message would you like to use?")
+
+def spell_checkforuser_cipherchoice():
+  if (user_cipherchoice != "xv2_cipher") or (user_cipherchoice != "decode_xv2_cipher") or (user_cipherchoice != "x_cipher") or (user_cipherchoice != "decode_x_cipher") or (user_cipherchoice != "tucker_cipher") or (user_cipherchoice != "decode_tucker_cipher") or (user_cipherchoice != "caeser_cipher_rand") or (user_cipherchoice != "caeser_cipher_choice") or (user_cipherchoice != "decode_caeser_cipher"):
+    print "Double check your spelling and try again."
+    user_cipherchoice = raw_input("Type Here: ")
+    spell_checkforuser_cipherchoice()
+spell_checkforuser_cipherchoice()
+
+if user_cipherchoice == "xv2_cipher":
+  xv2_cipher()
+if user_cipherchoice == decode_xv2_cipher:
+  decode_xv2_cipher()
+if user_cipherchoice == x_cipher:
+  x_cipher()
+if user_cipherchoice == decode_x_cipher:
+  decode_x_cipher()
+if user_cipherchoice == tucker_cipher:
+  tucker_cipher()
+if user_cipherchoice == decode_tucker_cipher:
+  decode_tucker_cipher()
+if user_cipherchoice == "caeser_cipher_rand":
+  caeser_cipher_rand()
+if user_cipherchoice == "caeser_cipher_choice":
+  caeser_cipher_choice()
+if user_cipherchoice == "decode_caeser_cipher":
+  decode_caeser_cipher()
+
 #This runs in an online python2 compiler
 #At the moment, it ignores capitals
 import random
