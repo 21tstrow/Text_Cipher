@@ -111,7 +111,7 @@ other_values = {
   40 : "\'",
   41: " ",
 }
-
+#used for xv2_cipher
 complete_set = {
   0 : "!",
   1 : "@",
