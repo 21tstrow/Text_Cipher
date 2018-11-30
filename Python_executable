@@ -36,7 +36,7 @@ spell_checkforuser_cipherchoice()
 #This runs in an online python2 compiler
 #At the moment, it ignores capitals
 import random
-og_word = raw_input("Type your word here: ").lower()
+og_word = raw_input("Type your word here: ")
 
 letter_values = {
   0 : "a",
@@ -226,7 +226,7 @@ def caeser_cipher_rand():
 def caeser_cipher_choice():
   shift_number = raw_input("What should the shift number be? Type here: ")
   print shift_number
-  shift_number = int(shift_number) - 1
+  shift_number = int(shift_number)
   for x in og_word:
     if (x.isalpha() == True):
       for c in letter_values:
@@ -238,7 +238,7 @@ def caeser_cipher_choice():
 
 def decode_caeser_cipher():
   shift_number = raw_input("What is the shift number? Type here: ")
-  shift_number = int(shift_number) - 1
+  shift_number = int(shift_number)
   for x in og_word:
     if (x.isalpha() == True):
       for c in letter_values:
@@ -304,7 +304,7 @@ def x_cipher():
       for c in other_values:
         if (x == other_values[c]):
           x_key = other_values.keys()[other_values.values().index(x)]
-          print other_values[(x_key + y_key)%26],
+          print other_values[(x_key + y_key)%46],
           y_key += 1        
 
 
@@ -327,7 +327,7 @@ def decode_x_cipher():
       for c in other_values:
         if (x == other_values[c]):
           x_key = other_values.keys()[other_values.values().index(x)]
-          print other_values[(((x_key - y_key)) % 26) + 26],
+          print other_values[(((x_key - y_key)) % 41)],
           y_key += 1
 
 def xv2_cipher():
@@ -342,6 +342,7 @@ def xv2_cipher():
           x_key = complete_set.keys()[complete_set.values().index(x)]
           print complete_set[((x_key + y_key)%93)],
           y_key += 1
+        
 
 def decode_xv2_cipher():
   print " "
@@ -356,6 +357,7 @@ def decode_xv2_cipher():
           x_key = complete_set.keys()[complete_set.values().index(x)]
           print complete_set[((x_key - y_key)%93)],
           y_key += 1
+         
 
 
 if user_cipherchoice == "xv2_cipher":
@@ -363,16 +365,23 @@ if user_cipherchoice == "xv2_cipher":
 if user_cipherchoice == "decode_xv2_cipher":
   decode_xv2_cipher()
 if user_cipherchoice == "x_cipher":
+  og_word = og_word.lower()
   x_cipher()
 if user_cipherchoice == "decode_x_cipher":
+  og_word = og_word.lower()
   decode_x_cipher()
 if user_cipherchoice == "tucker_cipher":
+  og_word = og_word.lower()
   tucker_cipher()
 if user_cipherchoice == "decode_tucker_cipher":
+  og_word = og_word.lower()
   decode_tucker_cipher()
 if user_cipherchoice == "caeser_cipher_rand":
+  og_word = og_word.lower()
   caeser_cipher_rand()
 if user_cipherchoice == "caeser_cipher_choice":
+  og_word = og_word.lower()
   caeser_cipher_choice()
 if user_cipherchoice == "decode_caeser_cipher":
+  og_word = og_word.lower()
   decode_caeser_cipher()
