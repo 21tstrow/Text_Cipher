@@ -1,3 +1,4 @@
+
 print """The following is a list of ciphers and cipher 
 decoding methods that you can use to encode a word or 
 phrase. They are listed from weakest to strongest:
