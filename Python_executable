@@ -232,7 +232,7 @@ def caeser_cipher_choice():
       for c in letter_values:
         if (x == letter_values[c]):
           x_key = letter_values.keys()[letter_values.values().index(x)]
-          print letter_values[(x_key + shift_number)%26],
+          print letter_values[(x_key + shift_number)%42],
     else:
       print x,
 
@@ -244,7 +244,7 @@ def decode_caeser_cipher():
       for c in letter_values:
         if (x == letter_values[c]):
           x_key = letter_values.keys()[letter_values.values().index(x)]
-          print letter_values[(x_key - shift_number)%26],
+          print letter_values[(x_key - shift_number)%42],
     else:
       print x,
 
@@ -304,7 +304,7 @@ def x_cipher():
       for c in other_values:
         if (x == other_values[c]):
           x_key = other_values.keys()[other_values.values().index(x)]
-          print other_values[(x_key + y_key)%46],
+          print other_values[(x_key + y_key)%42],
           y_key += 1        
 
 
@@ -327,7 +327,7 @@ def decode_x_cipher():
       for c in other_values:
         if (x == other_values[c]):
           x_key = other_values.keys()[other_values.values().index(x)]
-          print other_values[(((x_key - y_key)) % 41)],
+          print other_values[(((x_key - y_key)) % 42)],
           y_key += 1
 
 def xv2_cipher():
